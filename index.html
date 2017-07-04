@@ -23,7 +23,7 @@
         <![endif]-->
 
     <!-- Add your site or application content here -->
-    <p>Hello world! This is HTML5 Boilerplate.</p>
+    <p>pierre, feuille, ou ciseaux</p>
     <!-- Images Type  -->
     <!-- <img src="http://placehold.it/350x150" alt=""> -->
     <!-- Fin Images Type  -->
@@ -33,38 +33,38 @@
         var pointUser = 0;
         var pointOrdi = 0;
 
-        //On crée une boucle tant que les points n'ont pas atteint 3 points//
+        //Boucle Score là partie ce stop à 3//
         while (pointUser !== 3 && pointOrdi !== 3) {
 
-            var choixUtilisateur = prompt("Choisissez-vous pierre, feuille, ou ciseaux ?");
-            var choixOrdi = Math.random(); //valeur aleatoire entre 0 et 1//
+            var user = prompt("Choisissez-vous pierre, feuille, ou ciseaux ?");
+            var boot = Math.random(); //valeur aleatoire entre 0 et 1//
 
             //On traduit ce nombre aleatoire en un choix aleatoire entre pierre, papier, ciseaux//
-            if (choixOrdi < 0.34) {
-                choixOrdi = "pierre";
+            if (boot < 0.34) {
+                boot = "pierre";
             }
-            else if (choixOrdi <= 0.67) {
-                choixOrdi = "feuille";
+            else if (boot <= 0.67) {
+                boot = "feuille";
             }
 
             else {
-                choixOrdi = "ciseaux";
+                boot = "ciseaux";
             }
 
-            alert("l'Ordinateur avait choisit : " + choixOrdi);
+            alert("l'Ordinateur à choisit : " + boot);
 
-            //On crée une fonction avec les 2 choix qui retrournera le choix gagnant//
-            function comparer(choixOrdi, choixUtilisateur) {
+            //là fonction compare les deux résulta //
+            function comparer(boot, user) {
 
-                //Si les 2 choix sont les même//
-                if (choixOrdi === choixUtilisateur) {
+                //Si le choix et égales//
+                if (boot === user) {
                     return ("Egalité !");
                 }
 
-                //Sinon si le choix de l'ordi est pierre//
-                else if (choixOrdi === "pierre") {
+                //si le choix de l'ordi est pierre//
+                else if (boot === "pierre") {
 
-                    if (choixUtilisateur === "ciseaux") {
+                    if (user === "ciseaux") {
                         pointOrdi++;
                         return ("pierre gagne!");
 
@@ -76,10 +76,10 @@
                     }
                 }
 
-                //sinon si le choix de l'ordi est feuille//
-                else if (choixOrdi === "feuille") {
+                //si le choix de l'ordi est feuille//
+                else if (boot === "feuille") {
 
-                    if (choixUtilisateur === "pierre") {
+                    if (boot === "pierre") {
                         pointOrdi++;
                         return (" feuille gagne !");
 
@@ -92,10 +92,10 @@
 
                 }
 
-                //Sinon si le choix de l'ordi est ciseaux//
-                else if (choixOrdi === "ciseaux") {
+                //si le choix de l'ordi est ciseaux//
+                else if (boot === "ciseaux") {
 
-                    if (choixUtilisateur === "pierre") {
+                    if (user === "pierre") {
                         pointUser++;
                         return (" pierre gagne !");
 
@@ -110,7 +110,7 @@
 
             }
 
-            alert(comparer(choixOrdi, choixUtilisateur)); //appelle la fonction//
+            alert(comparer(boot, user)); //appelle la fonction//
             alert("ordinateur: " + pointOrdi + "." + " " + "vous: " + pointUser + ".");// Affiche les points//
 
         }
