@@ -1,0 +1,139 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <p>Hello world! This is HTML5 Boilerplate.</p>
+    <!-- Images Type  -->
+    <!-- <img src="http://placehold.it/350x150" alt=""> -->
+    <!-- Fin Images Type  -->
+
+
+    <script>
+        var pointUser = 0;
+        var pointOrdi = 0;
+
+        //On crée une boucle tant que les points n'ont pas atteint 3 points//
+        while (pointUser !== 3 && pointOrdi !== 3) {
+
+            var choixUtilisateur = prompt("Choisissez-vous pierre, feuille, ou ciseaux ?");
+            var choixOrdi = Math.random(); //valeur aleatoire entre 0 et 1//
+
+            //On traduit ce nombre aleatoire en un choix aleatoire entre pierre, papier, ciseaux//
+            if (choixOrdi < 0.34) {
+                choixOrdi = "pierre";
+            }
+            else if (choixOrdi <= 0.67) {
+                choixOrdi = "feuille";
+            }
+
+            else {
+                choixOrdi = "ciseaux";
+            }
+
+            alert("l'Ordinateur avait choisit : " + choixOrdi);
+
+            //On crée une fonction avec les 2 choix qui retrournera le choix gagnant//
+            function comparer(choixOrdi, choixUtilisateur) {
+
+                //Si les 2 choix sont les même//
+                if (choixOrdi === choixUtilisateur) {
+                    return ("Egalité !");
+                }
+
+                //Sinon si le choix de l'ordi est pierre//
+                else if (choixOrdi === "pierre") {
+
+                    if (choixUtilisateur === "ciseaux") {
+                        pointOrdi++;
+                        return ("pierre gagne!");
+
+                    }
+                    else {
+                        pointUser++;
+                        return ("feuille gagne !");
+
+                    }
+                }
+
+                //sinon si le choix de l'ordi est feuille//
+                else if (choixOrdi === "feuille") {
+
+                    if (choixUtilisateur === "pierre") {
+                        pointOrdi++;
+                        return (" feuille gagne !");
+
+                    }
+                    else {
+                        pointUser++;
+                        return ("ciseaux gagne !");
+
+                    }
+
+                }
+
+                //Sinon si le choix de l'ordi est ciseaux//
+                else if (choixOrdi === "ciseaux") {
+
+                    if (choixUtilisateur === "pierre") {
+                        pointUser++;
+                        return (" pierre gagne !");
+
+                    }
+                    else {
+                        pointOrdi++;
+                        return ("ciseaux gagne !");
+
+                    }
+
+                }
+
+            }
+
+            alert(comparer(choixOrdi, choixUtilisateur)); //appelle la fonction//
+            alert("ordinateur: " + pointOrdi + "." + " " + "vous: " + pointUser + ".");// Affiche les points//
+
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
+    </script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://use.fontawesome.com/a0c828b765.js"></script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+            (function (b, o, i, l, e, r) {
+                b.GoogleAnalyticsObject = l; b[l] || (b[l] =
+                    function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date;
+                e = o.createElement(i); r = o.getElementsByTagName(i)[0];
+                e.src = 'https://www.google-analytics.com/analytics.js';
+                r.parentNode.insertBefore(e, r)
+            }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto'); ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
